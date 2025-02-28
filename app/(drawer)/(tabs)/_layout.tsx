@@ -6,14 +6,22 @@ const TabsLayout = () => {
   return (
     <Tabs
       screenOptions={{
-        //tabBarActiveTintColor: 'indigo',
-        //tabBarShowLabel: false,
+        // Estilos para el Header
         headerShown: true,
+        headerTitleAlign: 'center',
+        headerTintColor: 'white',
+        headerStyle: {
+          backgroundColor: 'indigo',
+        },
         tabBarStyle: {
           backgroundColor: 'white'
         },
-        //tabBarActiveBackgroundColor: 'grey',
-        //tabBarInactiveTintColor: 'white'
+        // Estilos para el TapBar
+        tabBarShowLabel: true,
+        tabBarActiveBackgroundColor: '#7886C7',
+        tabBarActiveTintColor: 'white',
+        tabBarInactiveBackgroundColor: 'indigo',
+        tabBarInactiveTintColor: 'white'
       }}
     >
       <Tabs.Screen
@@ -38,6 +46,7 @@ const TabsLayout = () => {
         name='(stack)'
         options={{
           title: 'Stack',
+          headerShown: false,
           tabBarIcon: ({color, size}) => (
             <FontAwesome name='stack-exchange' color={color} size={size} />
           )
