@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import React from "react";
 import { router, Stack, useNavigation } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
@@ -26,15 +26,18 @@ const StackLayout = () => {
         headerStyle: {
           backgroundColor: "indigo",
         },
-        headerLeft: (({tintColor, canGoBack}) => (
-          <Ionicons
-          onPress={() => onHeaderLeftTap(canGoBack)}
-          name={canGoBack ? "arrow-back" : "menu"}
-          size={20}
-          color="white"
-          className="mr-2"
-          />
-        )),
+        headerLeft: ({ tintColor, canGoBack }) => (
+          // Tiene error en Android (Investigar, al parecer solo reconoce el tap en los pixeles del icono)
+          <View className="block"> 
+            <Ionicons
+              onPress={() => onHeaderLeftTap(canGoBack)}
+              name={canGoBack ? "arrow-back" : "menu"}
+              size={20}
+              color="white"
+              className="mr-5"
+            />
+          </View>
+        ),
         // Estilos del contenido
         contentStyle: {
           backgroundColor: "white",

@@ -3,6 +3,7 @@ import { Slot, SplashScreen } from "expo-router";
 import { useFonts } from "expo-font";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import "./global.css";
+import { StatusBar } from "expo-status-bar";
 
 const RootLayout = () => {
   SplashScreen.preventAutoHideAsync();
@@ -24,6 +25,7 @@ const RootLayout = () => {
   return (
     <GestureHandlerRootView className="flex flex-1">
       <Slot />
+      <StatusBar style="auto" />
     </GestureHandlerRootView>
   );
 };
